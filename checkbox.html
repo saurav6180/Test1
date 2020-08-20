@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+ 
+<body>
+    <input type="checkbox" name="all" id="all" value="all"> <label for="all">All</label>
+    <input type="checkbox" name="apple" id="apple" value="apple"> <label for="apple">Apple</label>
+    <input type="checkbox" name="orange" id="orange" value="orange"> <label for="orange">Orange</label>
+    <input type="checkbox" name="mango" id="mango" value="mango"> <label for="mango">Mango</label>
+    <input type="checkbox" name="grapes" id="grapes" value="grapes"> <label for="grapes">Grapes</label>
+    <script>
+	
+	const all = document.getElementById('all');
+ 
+all.addEventListener('click', toggle);
+ 
+ 
+function toggle(){
+    const isChecked = all.checked;
+    Array.from(document.getElementsByTagName('input')).forEach(element =>{
+        element.checked = isChecked; 
+    });
+}
+ 
+ 
+Array.from(document.querySelectorAll('input:not(#all)')).forEach(element =>{
+    element.addEventListener('click', uncheckAll);
+});
+ 
+function uncheckAll(){
+    all.checked = false
+}
+</script>
+ 
+</body>
+ 
+</html>
